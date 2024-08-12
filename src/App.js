@@ -1,25 +1,45 @@
-import logo from './logo.svg';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import NavigationBar from './header/NavigationBar';
+import Home from './pages/Home';
+import Moviez from './pages/Moviez';
+import { Action_movies, Comedy_movies, Thriller_movies } from './url';
+import Details from './pages/Details';
+import { createContext, useState } from 'react';
+import Banner from './pages/Banner';
+
+
+const MovieContext = createContext()
+
+
+
 
 function App() {
+  const [MovieId, setMovieId] = useState()
+  const [Films, setFilms] = useState([])
+  const [clickedMovie, setclickedMovie] = useState({})
+  const [ShowHead, setShowHead] = useState(true)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MovieContext.Provider value={{ Films: Films, setFilms: setFilms, MovieId, setMovieId, clickedMovie, setclickedMovie, ShowHead, setShowHead }}>
+
+        <BrowserRouter>
+          {ShowHead === true ? <NavigationBar /> : ""}
+          {ShowHead === true ? <Banner /> : ""}
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/popular' element={<Moviez title={"Popular Movies"} tmdbapi={Action_movies} />} />
+            <Route path='/thriller' element={<Moviez title={"Thriller Movies"} tmdbapi={Thriller_movies} />} />
+            <Route path='/comedy' element={<Moviez title={"Comedy Movies"} tmdbapi={Comedy_movies} />} />
+            <Route path='/details' element={<Details />} />
+
+          </Routes>
+
+        </BrowserRouter>
+      </MovieContext.Provider>
     </div>
   );
 }
-
+export { MovieContext }
 export default App;

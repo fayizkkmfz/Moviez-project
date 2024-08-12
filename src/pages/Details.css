@@ -1,0 +1,16 @@
+.imagesection{
+   margin: 30px;
+   margin-left: 90px;
+   border: 2px solid white;
+   border-radius: 10px;
+}
+.detailsection{
+    width: 500px;
+    color: azure;
+    margin: 30px;
+}
+.image{
+    width: 500px;
+    height: 450px;
+
+}

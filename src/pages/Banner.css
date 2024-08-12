@@ -1,0 +1,47 @@
+.Bannertext{
+    padding-top: 50px;
+    width: 50%;
+    text-align: start;
+    
+    padding-left: 25px;
+    
+}
+.Bannerhead{
+    font-size: 60px;
+    color: darkgoldenrod;
+    font-family: fantasy;
+    font-weight: 900;
+    line-height: 50px;
+}
+.Bannertext :hover{
+    color: white;
+    
+}
+.Bannerdetail{
+    font-size:18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    font-weight: 500;
+
+}
+.Bannerdetail:hover{
+    color: black;
+}
+.Banner_btn{
+    text-align: start;
+    padding-left: 70px;
+}
+.play_btn{
+    width: 95px;
+    height: 35px;
+    border-radius: 5px;
+    border: 2px solid darkgoldenrod;
+   
+}
+.add_btn{
+    width: 95px;
+    height: 35px;
+    margin-left: 5px;
+    border-radius: 5px;
+    border: 2px solid darkgoldenrod;
+}
