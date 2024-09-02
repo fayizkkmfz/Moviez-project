@@ -20,13 +20,14 @@ function App() {
   const [Films, setFilms] = useState([])
   const [clickedMovie, setclickedMovie] = useState({})
   const [ShowHead, setShowHead] = useState(true)
+  const [SearchText, setSearchText] = useState()
   return (
     <div className="App">
-      <MovieContext.Provider value={{ Films: Films, setFilms: setFilms, MovieId, setMovieId, clickedMovie, setclickedMovie, ShowHead, setShowHead }}>
+      <MovieContext.Provider value={{ Films: Films, setFilms: setFilms, MovieId, setMovieId, clickedMovie, setclickedMovie, ShowHead, setShowHead,SearchText, setSearchText }}>
 
         <BrowserRouter>
           {ShowHead === true ? <NavigationBar /> : ""}
-          {ShowHead === true ? <Banner /> : ""}
+           <Banner /> 
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/popular' element={<Moviez title={"Popular Movies"} tmdbapi={Action_movies} />} />

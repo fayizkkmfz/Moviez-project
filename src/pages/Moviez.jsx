@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 
 function Moviez({ title, tmdbapi }) {
   
-  const {Films, setFilms, setMovieId,setShowHead} = useContext(MovieContext)
+  const {Films, setFilms, setMovieId,setShowHead,SearchText} = useContext(MovieContext)
 
   useEffect(() => {
     axios.get(tmdbapi).then((res) => {
@@ -32,13 +32,17 @@ function Moviez({ title, tmdbapi }) {
   return (
     <div className='row'>
       <h2>{title}</h2>
-      {Films.map((film) => {
+        
+      {Films.filter((Filim)=>{
+        const SearchString=SearchText && typeof SearchText === 'string' ? SearchText.toLowerCase() :"";
+        return SearchString === "" ? Filim : (Filim.title && Filim.title.toLowerCase().includes(SearchString))
+      }).map((film) => {
         return (
 
           <Card className='cards' key={film.id} style={{ width: '18rem' }}>
             <Card.Img className='card_image' variant="top" src={imageUrl + film.backdrop_path} />
             <Card.Body>
-              <Card.Title>{film.title}</Card.Title>
+              <Card.Title>{film.title}</Card.Title> 
               <Card.Text>
                 {film.release_date}
               </Card.Text>
