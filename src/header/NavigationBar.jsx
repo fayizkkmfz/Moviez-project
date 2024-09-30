@@ -1,44 +1,38 @@
-import React, { useContext, useState } from 'react'
-import { Button, Container, Form, Navbar } from 'react-bootstrap'
+import React from 'react'
+import { Container, Navbar } from 'react-bootstrap'
 import './NavigationBar.css'
 import { Link } from 'react-router-dom'
-import { MovieContext } from '../App'
+
+import { GiFilmProjector } from "react-icons/gi";
+import { GiFilmStrip } from "react-icons/gi";
+
 
 function NavigationBar() {
-  const { setSearchText}=useContext(MovieContext)
-  const [SearchValue] = useState()
+  
+  
 
-  const getSearchValue=(e)=>{
-    setSearchText(e.target.value);
-  }
-  const Searching=()=>{
-    setSearchText(SearchValue);
-    
-  }
+  
     
   return (
-    <div>
-        <Navbar className='navbar' bg="" data-bs-theme="dark">
-        <Container>
-        <Link className='title' to={"/"}>MOVIEz</Link>
-        <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-              onChange={getSearchValue}
-            />
-            <Button variant="outline-success" onClick={Searching}>Search</Button>
-          </Form>
-         <div>
+    
+    <div >
+      
+        <Navbar className='navbar'>
+        
+        
+        <GiFilmProjector className='film-icon' />
+        <Link className='title' to={"/"}>MOVIEz</Link>   
+        
+         <div className='link-div'>
+
            <Link className="headings" to={"/popular"}>Popular</Link>
-          
+           <GiFilmStrip className='movie-icon'/>
+
           <Link className="headings" to={"/thriller"}>Thriller</Link>
+          <GiFilmStrip className='movie-icon'/>
           <Link className="headings" to={"/comedy"}>Comedy</Link>
           </div> 
-          
-        </Container>
+        
       </Navbar>
     </div>
   )
