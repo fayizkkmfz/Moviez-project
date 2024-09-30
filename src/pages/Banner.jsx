@@ -1,28 +1,41 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { War_movies, imageUrl } from '../url'
+import React, {useEffect, useState } from 'react'
+import {imageUrl, latestMovies } from '../url'
 import './Banner.css'
-import { FaCirclePlay } from "react-icons/fa6";
-import { LuBookmarkPlus } from "react-icons/lu";
+import { Rate } from 'antd';
+
+
+
+
 
 
 
 function Banner() {
   const [Movies, setMovies] = useState([])
-  let randomMovie = []
+  
+  
+  let randomMovie = {}
   useEffect(() => {
-    axios.get(War_movies).then((res) => {
+    axios.get(latestMovies).then((res) => {
       setMovies(res.data.results);
     })
+    
 
 
 
-  }, [])
-  const randomindx = Math.floor(Math.random() * Movies.length)
-  console.log(Movies);
-  randomMovie = Movies[randomindx]
-  console.log(randomMovie);
 
+  },
+   [setMovies])
+   const randomindx = Math.floor(Math.random() * Movies.length)
+   console.log(Movies);
+   randomMovie = Movies[randomindx]
+   console.log(randomMovie);
+ 
+   
+  
+
+
+  
   return (
     <div>
 
@@ -33,21 +46,21 @@ function Banner() {
 
         <div style={{
           backgroundImage: `url(${imageUrl}${randomMovie.backdrop_path})`,
-          height: "70vh", backgroundSize: "cover", backgroundRepeat: "no-repeat", width: "100%"
+          backgroundSize: "cover", backgroundRepeat: "no-repeat",border:"3px solid white"
         }}>
           
           <div className='Bannertext'>
             <p className='Bannerhead'>{randomMovie.title}</p>
+            <h5 className='fw-bold'>2024</h5>
+            <Rate disabled defaultValue={randomMovie.vote_average - 3} />
             <p className='Bannerdetail'>{randomMovie.overview}</p>
             
           </div>
-          <div className='Banner_btn'>
-          <button className='play_btn'>Play <FaCirclePlay /></button>
-          <button className='add_btn'>My list <LuBookmarkPlus /></button>
-          </div>
-
+         
         </div>
         
+       
+
         </>
       )}
     </div>

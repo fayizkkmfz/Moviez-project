@@ -35,7 +35,8 @@
     width: 95px;
     height: 35px;
     border-radius: 5px;
-    border: 2px solid darkgoldenrod;
+    background-color:rgb(11, 134, 83);
+    border: 2px solid rgb(255, 255, 255);
    
 }
 .add_btn{
@@ -43,5 +44,10 @@
     height: 35px;
     margin-left: 5px;
     border-radius: 5px;
-    border: 2px solid darkgoldenrod;
+    background-color:rgb(11, 134, 83);
+    border: 2px solid rgb(255, 255, 255);
+}
+
+@media only screen and (max-width:1000px){
+    
 }
