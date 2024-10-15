@@ -60,7 +60,7 @@ function Moviez({ title, tmdbapi }) {
         
       {Films.filter((Filim)=>{
         const SearchString=SearchText && typeof SearchText === 'string' ? SearchText.toLowerCase() :"";
-        return SearchString === "" ? Filim : (Filim.title && Filim.title.toLowerCase().includes(SearchString))
+        return SearchString === "" ? Filim : (Filim.title && Filim.title.includes(SearchString))
       }).map((film) => {
         return (
 

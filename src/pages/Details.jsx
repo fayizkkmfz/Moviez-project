@@ -54,7 +54,6 @@ console.log(Rating);
         <p style={{color:"green"}}>Popularity : {SelectedMovie.popularity}</p>
         <h4 style={{marginTop:"40px"}}>Watch The Video <IoMdArrowDropdownCircle className='down-icon' /></h4>
       </div>
-      
     </div>
     <div>
     <YouTube 

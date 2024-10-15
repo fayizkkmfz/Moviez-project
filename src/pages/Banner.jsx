@@ -46,7 +46,7 @@ function Banner() {
 
         <div style={{
           backgroundImage: `url(${imageUrl}${randomMovie.backdrop_path})`,
-          backgroundSize: "cover", backgroundRepeat: "no-repeat",border:"3px solid white"
+          backgroundSize: "cover",height:'430px',width:"auto",backgroundRepeat: "no-repeat",border:"3px solid white"
         }}>
           
           <div className='Bannertext'>
